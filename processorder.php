@@ -38,6 +38,11 @@
     $taxrate = 0.10;	//local scales tax is 10%
     $totalamount = $totalamount * (1 + $taxrate);
     echo "Total including tax: $".number_format($totalamount,2)."<br />";
+
+    echo 'isset($tireqty):'.isset($tireqty). '<br />';
+    echo 'isset($nothere):'.isset($nothere). '<br />';
+    echo 'empty($tireqty):'.empty($tireqty). '<br />';
+    echo 'empty($nothere):'.empty($nothere). '<br />';
 ?>
 </body>
 </html>
