@@ -22,6 +22,7 @@
 	echo '<p style="color:red">';
 	echo 'You did not order anything on the preview page.';
 	echo '</p>';
+	exit;
     } else{
 	echo '<p>Your order is as follows: </p>';
 	if ($tireqty > 0)
