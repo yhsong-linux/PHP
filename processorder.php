@@ -13,16 +13,21 @@
     /* Create short variable names */
     $tireqty = $_POST[ 'tireqty' ];
     $oilqty = $_POST[ 'oilqty' ];
-    $sparkqty = $_POST[ 'sparkqty' ];
-/*  echo '<p>Your order is as follows: </p>';
-    echo $tireqty. ' tires<br />';
-    echo $oilqty. ' bottles of oil<br />';
-    echo $sparkqty. ' spark plugs<br />'; 
-*/
+    $sparkqty = $_POST[ 'sparkplugs' ];
 
     $totalqty = 0;
     $totalqty = $tireqty + $oilqty + $sparkqty;
-    echo "Items ordered: ".$totalqty."<br />";
+    if ($totalqty == 0){
+	echo '<p style="color:red">';
+	echo 'You did not order anything on the preview page.';
+	echo '</p>';
+    } else{
+	echo '<p>Your order is as follows: </p>';
+	echo $tireqty. ' tires<br />';
+	echo $oilqty. ' bottles of oil<br />';
+	echo $sparkqty. ' spark plugs<br />'; 
+	echo 'Items ordered: '.$totalqty.'<br />';
+    }
     $totalamount = 0.00;
 
     define('TIREPRICE', 100);
@@ -39,10 +44,11 @@
     $totalamount = $totalamount * (1 + $taxrate);
     echo "Total including tax: $".number_format($totalamount,2)."<br />";
 
-    echo 'isset($tireqty):'.isset($tireqty). '<br />';
+/*  echo 'isset($tireqty):'.isset($tireqty). '<br />';
     echo 'isset($nothere):'.isset($nothere). '<br />';
     echo 'empty($tireqty):'.empty($tireqty). '<br />';
     echo 'empty($nothere):'.empty($nothere). '<br />';
+*/
 ?>
 </body>
 </html>
