@@ -23,9 +23,21 @@
 	echo '</p>';
     } else{
 	echo '<p>Your order is as follows: </p>';
-	echo $tireqty. ' tires<br />';
-	echo $oilqty. ' bottles of oil<br />';
-	echo $sparkqty. ' spark plugs<br />'; 
+	if ($tireqty > 0)
+	    echo $tireqty. ' tires<br />';
+	    if ($tireqty < 10)
+		$discount = 0.00;
+	    elseif (($tireqty >= 10) && ($tireqty <= 49))
+		$discount = 5;
+	    elseif (($tireqty >= 50) && ($tireqty <= 99))
+		$discount = 0.10;
+	    elseif($tireqty >= 100)
+		$discount = 0.15;
+	if ($oilqty > 0)
+	    echo $oilqty. ' bottles of oil<br />';
+	if ($sparkqty > 0)
+	    echo $sparkqty. ' spark plugs<br />';
+
 	echo 'Items ordered: '.$totalqty.'<br />';
     }
     $totalamount = 0.00;
@@ -34,7 +46,7 @@
     define('OILPRICE', 10);
     define('SPARKPRICE', 4);
 
-    $totalamount = $tireqty * TIREPRICE 
+    $totalamount = $tireqty * TIREPRICE * $discount 
 		+ $oilqty * OILPRICE 
 		+ $sparkqty * SPARKPRICE;
 
