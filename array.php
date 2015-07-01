@@ -26,6 +26,18 @@
 			array('Code' => 'OIL', 'Description' => 'Oil', 'Price' => 10),
 			array('Code' => 'SPK', 'Description' => 'Spaks Plugs', 'Price' => 4)
 	);
+
+	function compare($x, $y){
+		if ($x[1] == $y[1]){
+			return 0;
+		} else if ($x[1] < $y[1]){
+			return -1;
+		} else {
+			return 1;
+		}
+	}
+	usort($products, compare);
+
 	for ($row = 0; $row < 3; $row++){
 		while (list($key, $value) = each($products[$row])) {
 			echo '|' .$value;
