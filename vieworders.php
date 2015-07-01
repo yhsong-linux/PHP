@@ -31,8 +31,9 @@
 		}
 		echo 'Final position of the file pointer is '.(ftell($fp));
 		echo '.<br />';
-		rewind($fp);
-		echo 'After rewind, the position is '.(ftell($fp));
+		//rewind($fp);
+		fseek($fp, 0, SEEK_SET);
+		echo 'After fseek(rewind), the position is '.(ftell($fp));
 		echo '.<br />';
 		fclose($fp);
 	}else {
