@@ -12,6 +12,9 @@
 <?php
 	if (file_exists("$DOCUMENT_ROOT/order.txt")){
 		echo 'There are orders waiting to be processed.<br />';
+		echo 'This size is ';
+		echo filesize("$DOCUMENT_ROOT/order.txt");
+		echo '.<br />';
 		echo 'Following is file text:<br />';
 		@ $fp = fopen("$DOCUMENT_ROOT/order.txt", 'rb');
 		if (!$fp){
