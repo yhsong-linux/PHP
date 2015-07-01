@@ -1,9 +1,13 @@
 <?php
-	$prices = array('Tires' => 100, 'oil' => 10, 'spark plug' => 4);
+	$prices = array('Tires' => 100, 'Oil' => 10, 'Spark Plugs' => 4);
+
+	asort($prices);
+
 	foreach ($prices as $key => $value)
 		echo $key. ' - ' .$value. '<br />';
 
 	reset($prices);
+	ksort($prices);
 
 	while ($element = each($prices)){
 		echo $element[ 'key' ];
@@ -19,8 +23,8 @@
 	}
 
 	$products = array(array('Code' => 'TIR', 'Description' => 'Tires', 'Price' => 100),
-			array('Code' => 'OIL', 'Description' => 'oil', 'Price' => 10),
-			array('Code' => 'SPK', 'Description' => 'spaks plugs', 'Price' => 4)
+			array('Code' => 'OIL', 'Description' => 'Oil', 'Price' => 10),
+			array('Code' => 'SPK', 'Description' => 'Spaks Plugs', 'Price' => 4)
 	);
 	for ($row = 0; $row < 3; $row++){
 		while (list($key, $value) = each($products[$row])) {
