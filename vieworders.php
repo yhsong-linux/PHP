@@ -10,7 +10,7 @@
 <h1>Bob's Auto Parts</h1>
 <h2>Customer Orders</h2>
 <?php
-	@ $fp = fopen("$DOCUMENT_ROOT/order.txt", 'rb');
+/*	@ $fp = fopen("$DOCUMENT_ROOT/order.txt", 'rb');
 	if (!$fp){
 		echo '<p><strong>No orders pending.
 			Please try again later.</strong></p>';
@@ -21,6 +21,8 @@
 		$order = fgets($fp, 999);
 		echo $order. '<br />';
 	}
+*/
+	$order = readfile("$DOCUMENT_ROOT/order.txt");
 ?>
 </body>
 </html>
