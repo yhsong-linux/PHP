@@ -1,8 +1,8 @@
 <html>
 <body>
-<table border= "0"cellpadding= "3">
+<table>
 <tr>
-    <td bgcolor= "#CCCCC"align= "center">Distance</td>	
+    <td bgcolor= "#CCCCC"align= "center">Distance</td>
     <td bgcolor= "#CCCCC"align= "center">Cost</td>
 </tr>
 <?php
