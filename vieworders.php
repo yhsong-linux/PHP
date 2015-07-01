@@ -1,6 +1,7 @@
 <?php
 	//create short variable name
 	$DOCUMENT_ROOT = $_SERVER[ 'DOCUMENT_ROOT' ];
+	$FILE = "$DOCUMENT_ROOT/order.txt";
 ?>
 <html>
 <head>
@@ -10,13 +11,13 @@
 <h1>Bob's Auto Parts</h1>
 <h2>Customer Orders</h2>
 <?php
-	if (file_exists("$DOCUMENT_ROOT/order.txt")){
+	if (file_exists($FILE)){
 		echo 'There are orders waiting to be processed.<br />';
 		echo 'This size is ';
-		echo filesize("$DOCUMENT_ROOT/order.txt");
+		echo filesize($FILE);
 		echo '.<br />';
 		echo 'Following is file text:<br />';
-		@ $fp = fopen("$DOCUMENT_ROOT/order.txt", 'rb');
+		@ $fp = fopen($FILE, 'rb');
 		if (!$fp){
 			echo '<p><strong>No orders pending.
 			Please try again later.</strong></p>';
@@ -28,6 +29,12 @@
 			if (!feof($fp))
 				echo ($char == "\n" ? "<br />" : $char);
 		}
+		echo 'Final position of the file pointer is '.(ftell($fp));
+		echo '.<br />';
+		rewind($fp);
+		echo 'After rewind, the position is '.(ftell($fp));
+		echo '.<br />';
+		fclose($fp);
 	}else {
 		echo 'There are currently no orders.';
 	}
