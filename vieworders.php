@@ -10,17 +10,23 @@
 <h1>Bob's Auto Parts</h1>
 <h2>Customer Orders</h2>
 <?php
-	@ $fp = fopen("$DOCUMENT_ROOT/order.txt", 'rb');
-	if (!$fp){
-		echo '<p><strong>No orders pending.
+	if (file_exists("$DOCUMENT_ROOT/order.txt")){
+		echo 'There are orders waiting to be processed.<br />';
+		echo 'Following is file text:<br />';
+		@ $fp = fopen("$DOCUMENT_ROOT/order.txt", 'rb');
+		if (!$fp){
+			echo '<p><strong>No orders pending.
 			Please try again later.</strong></p>';
-		exit;
-	}
+			exit;
+		}
 
-	while (!feof($fp)){
-		$char = fgetc($fp);
-		if (!feof($fp))
-			echo ($char == "\n" ? "<br />" : $char);
+		while (!feof($fp)){
+			$char = fgetc($fp);
+			if (!feof($fp))
+				echo ($char == "\n" ? "<br />" : $char);
+		}
+	}else {
+		echo 'There are currently no orders.';
 	}
 ?>
 </body>
