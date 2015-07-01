@@ -12,7 +12,7 @@
 <body>
 	<h1>Bob's Auto Parts</h1>
 	<div align="center">
-		<table width="100%">
+		<table>
 			<tr>
 				<?php
 					for ($i = 0; $i < 3; $i++){
